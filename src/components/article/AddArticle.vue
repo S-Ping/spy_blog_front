@@ -8,16 +8,37 @@
     </el-breadcrumb>
     <!-- 卡片视图区域 -->
     <el-card>
-      
+      <!-- <mavon-editor v-model="context" :toolbars="toolbars" /> -->
+      <!-- 标题区域 -->
+
+      <!-- 文章编辑区域 -->
+      <div id="article_editor">
+        <Markdown v-if="editorType==='1'" />
+        <wang-editor
+        style='height:300px;'
+        v-model="value"
+    ></wang-editor>
+      </div>
     </el-card>
   </div>
 </template>
 
 <script>
+import Markdown from "../../plugins/markdown/pro";
+import wangEditor  from "./wang-editor"
 export default {
+  data() {
+    return {
+      editorType: "2",
+      value: '',
+    };
+  },
+  components: {
+    Markdown,
+    wangEditor
+  }
 };
 </script>
 
 <style lang="less" scoped>
-
 </style>

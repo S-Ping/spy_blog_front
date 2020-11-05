@@ -24,7 +24,10 @@ import {
     Switch,
     Tag,
     Dialog,
-    Tree
+    Tree,
+    Dropdown,
+    DropdownMenu, 
+    DropdownItem
 } from 'element-ui'
 
 Vue.use(Button)
@@ -51,5 +54,9 @@ Vue.use(Switch)
 Vue.use(Tag)
 Vue.use(Dialog)
 Vue.use(Tree)
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
+
 
 Vue.prototype.$message = Message

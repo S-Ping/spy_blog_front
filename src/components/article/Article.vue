@@ -16,7 +16,16 @@
           </el-input>
         </el-col>
         <el-col :span="4">
-          <el-button type="primary" @click="addArticle">添加文章</el-button>
+          <!-- <el-button type="primary" @click="addArticle">添加文章</el-button> -->
+          <el-dropdown trigger="click" @command="handleCommand">
+          <el-button type="primary">
+            添加文章<i class="el-icon-arrow-down el-icon--right"></i>
+          </el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="1">新建文章</el-dropdown-item>
+            <el-dropdown-item command="2">新建markdown</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
         </el-col>
       </el-row>
       <!-- 文章列表展示区 -->
@@ -85,8 +94,14 @@ export default {
       this.getArticleList();
       this.articleParams.offset = 0;
     },
-    addArticle() {
-      this.$router.push('/article/add')
+    handleCommand(command) {
+      if (command === "1") {
+        // this.$router.push('/article/add')
+        console.log('富文本')
+      } else {
+        this.$router.push('/article/add')
+      }
+      
     }
   }
 };
